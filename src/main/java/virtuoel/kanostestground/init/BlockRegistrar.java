@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -36,6 +37,7 @@ public class BlockRegistrar
 						new Block(Material.ROCK, MapColor.STONE)
 						.setHardness(3.0F)
 						.setResistance(5.0F)
+						.setSoundType(SoundType.STONE) // AT'd setSoundType
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
 						"pickaxe", 2),
 						"generic_ore"),
@@ -43,6 +45,7 @@ public class BlockRegistrar
 						new Block(Material.IRON, MapColor.PURPLE)
 						.setHardness(5.0F)
 						.setResistance(10.0F)
+						.setSoundType(SoundType.METAL) // AT'd setSoundType
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
 						"pickaxe", 2),
 						"generic_block")
