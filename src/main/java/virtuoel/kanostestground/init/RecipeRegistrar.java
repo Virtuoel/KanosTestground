@@ -23,6 +23,7 @@ public class RecipeRegistrar
 	public static void registerOreDict(RegistryEvent.Register<IRecipe> event)
 	{
 		OreDictionary.registerOre("oreGeneric", BlockRegistrar.GENERIC_ORE);
+		OreDictionary.registerOre("blockGeneric", BlockRegistrar.GENERIC_BLOCK);
 		
 		OreDictionary.registerOre("ingotGeneric", ItemRegistrar.GENERIC_INGOT);
 	}

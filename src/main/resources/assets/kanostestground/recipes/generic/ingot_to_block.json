@@ -1,0 +1,20 @@
+{
+	"type": "forge:ore_shapeless",
+	"result":
+	{
+		"item": "kanostestground:generic_block",
+		"count": 1
+	},
+	"ingredients":
+	[
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" },
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" }
+	]
+}

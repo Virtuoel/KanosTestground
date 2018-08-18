@@ -1,6 +1,7 @@
 # Blocks
 # Ores and Material Blocks
 tile.kanostestground.generic_ore.name=Generic Ore
+tile.kanostestground.generic_block.name=Block of Generic
 
 # Items
 # Ingots, Nuggets, Gems, Dusts

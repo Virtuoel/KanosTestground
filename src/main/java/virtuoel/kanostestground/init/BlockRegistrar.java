@@ -26,6 +26,7 @@ import virtuoel.kanostestground.KanosTestground;
 public class BlockRegistrar
 {
 	public static final Block GENERIC_ORE = Blocks.AIR; // Variable name matches registry name because of class-level ObjectHolder. See: http://cazzar.net/tutorials/fml/objectholder-a-simple-run-through/
+	public static final Block GENERIC_BLOCK = Blocks.AIR;
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event)
@@ -37,7 +38,14 @@ public class BlockRegistrar
 						.setResistance(5.0F)
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
 						"pickaxe", 2),
-						"generic_ore")
+						"generic_ore"),
+				setRegistryNameAndTranslationKey(setHarvestLevel(
+						new Block(Material.IRON, MapColor.PURPLE)
+						.setHardness(5.0F)
+						.setResistance(10.0F)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"pickaxe", 2),
+						"generic_block")
 		);
 	}
 	
@@ -47,7 +55,8 @@ public class BlockRegistrar
 		final Function<Block, Item> makeItemBlock = block -> new ItemBlock(block).setRegistryName(block.getRegistryName());
 		
 		Stream.of(
-			GENERIC_ORE
+			GENERIC_ORE,
+			GENERIC_BLOCK
 		).filter(b -> b != null && b != Blocks.AIR)
 		.map(makeItemBlock)
 		.forEach(event.getRegistry()::register);
@@ -65,7 +74,8 @@ public class BlockRegistrar
 			};
 			
 			Stream.of(
-				GENERIC_ORE
+				GENERIC_ORE,
+				GENERIC_BLOCK
 			).filter(b -> b != null && b != Blocks.AIR)
 			.map(Item::getItemFromBlock)
 			.filter(i -> i != null && i != Items.AIR)
