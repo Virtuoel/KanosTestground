@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults":
+	{
+		"textures":
+		{
+			"all": "kanostestground:blocks/generic_ore"
+		},
+		"model": "cube_all",
+		"transform":"forge:default-block"
+	},
+	"variants":
+	{
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

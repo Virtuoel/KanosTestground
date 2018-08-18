@@ -1,4 +1,9 @@
+# Blocks
+# Ores and Material Blocks
+tile.kanostestground.generic_ore.name=Generic Ore
+
 # Items
+# Ingots, Nuggets, Gems, Dusts
 item.kanostestground.generic_ingot.name=Generic Ingot
 
 # Creative Tabs
