@@ -1,0 +1,16 @@
+[
+	{
+		"modid": "kanostestground",
+		"name": "KanosTestground",
+		"description": "A mod for \"tutorial\" and testing purposes",
+		"version": "${version}",
+		"mcversion": "${mcversion}",
+		"url": "",
+		"updateUrl": "",
+		"authorList": ["Virtuoel"],
+		"credits": "Code by Virtuoel",
+		"logoFile": "",
+		"screenshots": [],
+		"dependencies": []
+	}
+]
