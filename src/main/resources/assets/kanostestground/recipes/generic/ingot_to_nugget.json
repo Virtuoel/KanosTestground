@@ -1,0 +1,12 @@
+{
+	"type": "forge:ore_shapeless",
+	"result":
+	{
+		"item": "kanostestground:generic_nugget",
+		"count": 9
+	},
+	"ingredients":
+	[
+		{ "type": "forge:ore_dict", "ore": "ingotGeneric" }
+	]
+}

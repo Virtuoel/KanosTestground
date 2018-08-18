@@ -1,0 +1,21 @@
+{
+	"type": "forge:ore_shaped",
+	"result":
+	{
+		"item": "kanostestground:generic_dust",
+		"count": 1
+	},
+	"pattern":
+	[
+		"DD",
+		"DD"
+	],
+	"key":
+	{
+		"D":
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustSmallGeneric"
+		}
+	}
+}

@@ -6,6 +6,10 @@ tile.kanostestground.generic_block.name=Block of Generic
 # Items
 # Ingots, Nuggets, Gems, Dusts
 item.kanostestground.generic_ingot.name=Generic Ingot
+item.kanostestground.generic_nugget.name=Generic Nugget
+item.kanostestground.generic_dust.name=Generic Dust
+item.kanostestground.small_generic_dust.name=Small Pile of Generic Dust
+item.kanostestground.tiny_generic_dust.name=Tiny Pile of Generic Dust
 
 # Creative Tabs
 itemGroup.kanostestground=Kanos Testground

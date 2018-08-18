@@ -17,6 +17,9 @@ public class RecipeRegistrar
 	public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
 	{
 		GameRegistry.addSmelting(new ItemStack(BlockRegistrar.GENERIC_ORE), new ItemStack(ItemRegistrar.GENERIC_INGOT), 0.1F);
+		
+		GameRegistry.addSmelting(new ItemStack(ItemRegistrar.GENERIC_DUST), new ItemStack(ItemRegistrar.GENERIC_INGOT), 0.1F);
+		GameRegistry.addSmelting(new ItemStack(ItemRegistrar.TINY_GENERIC_DUST), new ItemStack(ItemRegistrar.GENERIC_NUGGET), 0.1F);
 	}
 	
 	@SubscribeEvent(priority = EventPriority.HIGHEST) // Register OreDict after Item and Block ObjectHolders are applied
@@ -26,5 +29,9 @@ public class RecipeRegistrar
 		OreDictionary.registerOre("blockGeneric", BlockRegistrar.GENERIC_BLOCK);
 		
 		OreDictionary.registerOre("ingotGeneric", ItemRegistrar.GENERIC_INGOT);
+		OreDictionary.registerOre("nuggetGeneric", ItemRegistrar.GENERIC_NUGGET);
+		OreDictionary.registerOre("dustGeneric", ItemRegistrar.GENERIC_DUST);
+		OreDictionary.registerOre("dustSmallGeneric", ItemRegistrar.SMALL_GENERIC_DUST);
+		OreDictionary.registerOre("dustTinyGeneric", ItemRegistrar.TINY_GENERIC_DUST);
 	}
 }

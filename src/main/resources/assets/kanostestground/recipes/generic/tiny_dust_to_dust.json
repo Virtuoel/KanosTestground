@@ -1,0 +1,20 @@
+{
+	"type": "forge:ore_shapeless",
+	"result":
+	{
+		"item": "kanostestground:generic_dust",
+		"count": 1
+	},
+	"ingredients":
+	[
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" },
+		{ "type": "forge:ore_dict", "ore": "dustTinyGeneric" }
+	]
+}

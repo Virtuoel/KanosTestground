@@ -20,6 +20,10 @@ import virtuoel.kanostestground.KanosTestground;
 public class ItemRegistrar
 {
 	public static final Item GENERIC_INGOT = Items.AIR; // Variable name matches registry name because of class-level ObjectHolder. See: http://cazzar.net/tutorials/fml/objectholder-a-simple-run-through/
+	public static final Item GENERIC_NUGGET = Items.AIR;
+	public static final Item GENERIC_DUST = Items.AIR;
+	public static final Item SMALL_GENERIC_DUST = Items.AIR;
+	public static final Item TINY_GENERIC_DUST = Items.AIR;
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
@@ -28,7 +32,23 @@ public class ItemRegistrar
 				setRegistryNameAndTranslationKey(
 						new Item()
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
-						"generic_ingot")
+						"generic_ingot"),
+				setRegistryNameAndTranslationKey(
+						new Item()
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_nugget"),
+				setRegistryNameAndTranslationKey(
+						new Item()
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_dust"),
+				setRegistryNameAndTranslationKey(
+						new Item()
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"small_generic_dust"),
+				setRegistryNameAndTranslationKey(
+						new Item()
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"tiny_generic_dust")
 		);
 	}
 	
@@ -44,7 +64,11 @@ public class ItemRegistrar
 			};
 			
 			Stream.of(
-					GENERIC_INGOT
+					GENERIC_INGOT,
+					GENERIC_NUGGET,
+					GENERIC_DUST,
+					SMALL_GENERIC_DUST,
+					TINY_GENERIC_DUST
 			).filter(i -> i != null && i != Items.AIR)
 			.forEach(setItemModel);
 		}
