@@ -49,7 +49,7 @@ public class ItemRegistrar
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
-		event.getRegistry().registerAll(
+		Stream.of(
 				setRegistryNameAndTranslationKey(
 						new Item()
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
@@ -107,8 +107,9 @@ public class ItemRegistrar
 				setRegistryNameAndTranslationKey(
 						new ItemArmor(ArmorMaterials.GENERIC, 0, EntityEquipmentSlot.FEET)
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
-						"generic_boots")
-		);
+						"generic_boots"),
+		null).filter(i -> i != null)
+		.forEach(event.getRegistry()::register);
 	}
 	
 	public static void init()
@@ -144,8 +145,8 @@ public class ItemRegistrar
 					GENERIC_HELMET,
 					GENERIC_CHESTPLATE,
 					GENERIC_LEGGINGS,
-					GENERIC_BOOTS
-			).filter(i -> i != null && i != Items.AIR)
+					GENERIC_BOOTS,
+			null).filter(i -> i != null && i != Items.AIR)
 			.forEach(setItemModel);
 		}
 	}

@@ -32,7 +32,7 @@ public class BlockRegistrar
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event)
 	{
-		event.getRegistry().registerAll(
+		Stream.of(
 				setRegistryNameAndTranslationKey(setHarvestLevel(
 						new Block(Material.ROCK, MapColor.STONE)
 						.setHardness(3.0F)
@@ -48,8 +48,9 @@ public class BlockRegistrar
 						.setSoundType(SoundType.METAL) // AT'd setSoundType
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
 						"pickaxe", 2),
-						"generic_block")
-		);
+						"generic_block"),
+		null).filter(b -> b != null)
+		.forEach(event.getRegistry()::register);
 	}
 	
 	@SubscribeEvent
@@ -59,8 +60,8 @@ public class BlockRegistrar
 		
 		Stream.of(
 			GENERIC_ORE,
-			GENERIC_BLOCK
-		).filter(b -> b != null && b != Blocks.AIR)
+			GENERIC_BLOCK,
+		null).filter(b -> b != null && b != Blocks.AIR)
 		.map(makeItemBlock)
 		.forEach(event.getRegistry()::register);
 	}
@@ -78,8 +79,8 @@ public class BlockRegistrar
 			
 			Stream.of(
 				GENERIC_ORE,
-				GENERIC_BLOCK
-			).filter(b -> b != null && b != Blocks.AIR)
+				GENERIC_BLOCK,
+			null).filter(b -> b != null && b != Blocks.AIR)
 			.map(Item::getItemFromBlock)
 			.filter(i -> i != null && i != Items.AIR)
 			.forEach(setItemModel);
