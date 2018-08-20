@@ -1,0 +1,17 @@
+{
+	"type": "forge:ore_shaped",
+	"result":
+	{
+		"item": "kanostestground:generic_boots",
+		"count": 1
+	},
+	"pattern":
+	[
+		"M M",
+		"M M"
+	],
+	"key":
+	{
+		"M": { "type": "forge:ore_dict", "ore": "ingotGeneric" }
+	}
+}

@@ -5,7 +5,10 @@ import java.util.stream.Stream;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemPickaxe;
@@ -37,6 +40,11 @@ public class ItemRegistrar
 	public static final Item GENERIC_AXE = Items.AIR;
 	public static final Item GENERIC_SHOVEL = Items.AIR;
 	public static final Item GENERIC_HOE = Items.AIR;
+	
+	public static final Item GENERIC_HELMET = Items.AIR;
+	public static final Item GENERIC_CHESTPLATE = Items.AIR;
+	public static final Item GENERIC_LEGGINGS = Items.AIR;
+	public static final Item GENERIC_BOOTS = Items.AIR;
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
@@ -82,13 +90,31 @@ public class ItemRegistrar
 				setRegistryNameAndTranslationKey(
 						new ItemHoe(ToolMaterials.GENERIC)
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
-						"generic_hoe")
+						"generic_hoe"),
+				
+				setRegistryNameAndTranslationKey(
+						new ItemArmor(ArmorMaterials.GENERIC, 0, EntityEquipmentSlot.HEAD)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_helmet"),
+				setRegistryNameAndTranslationKey(
+						new ItemArmor(ArmorMaterials.GENERIC, 0, EntityEquipmentSlot.CHEST)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_chestplate"),
+				setRegistryNameAndTranslationKey(
+						new ItemArmor(ArmorMaterials.GENERIC, 0, EntityEquipmentSlot.LEGS)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_leggings"),
+				setRegistryNameAndTranslationKey(
+						new ItemArmor(ArmorMaterials.GENERIC, 0, EntityEquipmentSlot.FEET)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_boots")
 		);
 	}
 	
 	public static void init()
 	{
 		ToolMaterials.GENERIC.setRepairItem(new ItemStack(GENERIC_INGOT)); // Set repair item after ObjectHolders are applied
+		ArmorMaterials.GENERIC.setRepairItem(new ItemStack(GENERIC_INGOT));
 	}
 	
 	@EventBusSubscriber(modid = KanosTestground.MOD_ID, value = Side.CLIENT)
@@ -113,7 +139,12 @@ public class ItemRegistrar
 					GENERIC_PICKAXE,
 					GENERIC_AXE,
 					GENERIC_SHOVEL,
-					GENERIC_HOE
+					GENERIC_HOE,
+					
+					GENERIC_HELMET,
+					GENERIC_CHESTPLATE,
+					GENERIC_LEGGINGS,
+					GENERIC_BOOTS
 			).filter(i -> i != null && i != Items.AIR)
 			.forEach(setItemModel);
 		}
@@ -129,6 +160,20 @@ public class ItemRegistrar
 						6.5F,
 						2.5F,
 						8
+				);
+	}
+	
+	public static class ArmorMaterials
+	{
+		public static final ItemArmor.ArmorMaterial GENERIC =
+				EnumHelper.addArmorMaterial(
+						KanosTestground.MOD_ID + ":generic",
+						KanosTestground.MOD_ID + ":generic",
+						22,
+						new int[] { 2, 5, 6, 2 }, // Boots, Legs, Chest, Helm
+						8,
+						SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+						0.5F
 				);
 	}
 	

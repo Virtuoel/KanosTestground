@@ -29,7 +29,12 @@ public class RecipeRegistrar
 				ItemRegistrar.GENERIC_PICKAXE,
 				ItemRegistrar.GENERIC_AXE,
 				ItemRegistrar.GENERIC_SHOVEL,
-				ItemRegistrar.GENERIC_HOE
+				ItemRegistrar.GENERIC_HOE,
+				
+				ItemRegistrar.GENERIC_HELMET,
+				ItemRegistrar.GENERIC_CHESTPLATE,
+				ItemRegistrar.GENERIC_LEGGINGS,
+				ItemRegistrar.GENERIC_BOOTS
 		).filter(i -> i != null && i != Items.AIR)
 		.forEach(item ->
 			GameRegistry.addSmelting(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ItemRegistrar.GENERIC_NUGGET), 0.1F)

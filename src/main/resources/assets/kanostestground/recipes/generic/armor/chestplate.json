@@ -1,0 +1,18 @@
+{
+	"type": "forge:ore_shaped",
+	"result":
+	{
+		"item": "kanostestground:generic_chestplate",
+		"count": 1
+	},
+	"pattern":
+	[
+		"M M",
+		"MMM",
+		"MMM"
+	],
+	"key":
+	{
+		"M": { "type": "forge:ore_dict", "ore": "ingotGeneric" }
+	}
+}

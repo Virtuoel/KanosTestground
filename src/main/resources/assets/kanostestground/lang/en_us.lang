@@ -18,5 +18,11 @@ item.kanostestground.generic_shovel.name=Generic Shovel
 item.kanostestground.generic_axe.name=Generic Axe
 item.kanostestground.generic_hoe.name=Generic Hoe
 
+# Armor
+item.kanostestground.generic_helmet.name=Generic Helmet
+item.kanostestground.generic_chestplate.name=Generic Chestplate
+item.kanostestground.generic_leggings.name=Generic Leggings
+item.kanostestground.generic_boots.name=Generic Boots
+
 # Creative Tabs
 itemGroup.kanostestground=Kanos Testground
