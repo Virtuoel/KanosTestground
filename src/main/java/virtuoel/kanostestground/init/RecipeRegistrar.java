@@ -1,5 +1,8 @@
 package virtuoel.kanostestground.init;
 
+import java.util.stream.Stream;
+
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
@@ -20,6 +23,17 @@ public class RecipeRegistrar
 		
 		GameRegistry.addSmelting(new ItemStack(ItemRegistrar.GENERIC_DUST), new ItemStack(ItemRegistrar.GENERIC_INGOT), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(ItemRegistrar.TINY_GENERIC_DUST), new ItemStack(ItemRegistrar.GENERIC_NUGGET), 0.1F);
+		
+		Stream.of(
+				ItemRegistrar.GENERIC_SWORD,
+				ItemRegistrar.GENERIC_PICKAXE,
+				ItemRegistrar.GENERIC_AXE,
+				ItemRegistrar.GENERIC_SHOVEL,
+				ItemRegistrar.GENERIC_HOE
+		).filter(i -> i != null && i != Items.AIR)
+		.forEach(item ->
+			GameRegistry.addSmelting(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ItemRegistrar.GENERIC_NUGGET), 0.1F)
+		);
 	}
 	
 	@SubscribeEvent(priority = EventPriority.HIGHEST) // Register OreDict after Item and Block ObjectHolders are applied

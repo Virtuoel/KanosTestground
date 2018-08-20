@@ -11,5 +11,12 @@ item.kanostestground.generic_dust.name=Generic Dust
 item.kanostestground.small_generic_dust.name=Small Pile of Generic Dust
 item.kanostestground.tiny_generic_dust.name=Tiny Pile of Generic Dust
 
+# Tools
+item.kanostestground.generic_sword.name=Generic Sword
+item.kanostestground.generic_pickaxe.name=Generic Pickaxe
+item.kanostestground.generic_shovel.name=Generic Shovel
+item.kanostestground.generic_axe.name=Generic Axe
+item.kanostestground.generic_hoe.name=Generic Hoe
+
 # Creative Tabs
 itemGroup.kanostestground=Kanos Testground

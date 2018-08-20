@@ -6,8 +6,15 @@ import java.util.stream.Stream;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -24,6 +31,12 @@ public class ItemRegistrar
 	public static final Item GENERIC_DUST = Items.AIR;
 	public static final Item SMALL_GENERIC_DUST = Items.AIR;
 	public static final Item TINY_GENERIC_DUST = Items.AIR;
+	
+	public static final Item GENERIC_SWORD = Items.AIR;
+	public static final Item GENERIC_PICKAXE = Items.AIR;
+	public static final Item GENERIC_AXE = Items.AIR;
+	public static final Item GENERIC_SHOVEL = Items.AIR;
+	public static final Item GENERIC_HOE = Items.AIR;
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
@@ -48,8 +61,34 @@ public class ItemRegistrar
 				setRegistryNameAndTranslationKey(
 						new Item()
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
-						"tiny_generic_dust")
+						"tiny_generic_dust"),
+				
+				setRegistryNameAndTranslationKey(
+						new ItemSword(ToolMaterials.GENERIC)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_sword"),
+				setRegistryNameAndTranslationKey(
+						new ItemPickaxe(ToolMaterials.GENERIC) // AT'd <init>
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_pickaxe"),
+				setRegistryNameAndTranslationKey(
+						new ItemAxe(ToolMaterials.GENERIC, 8.0F, -3.1F){} // anonymous class to bypass protected Forge-added constructor instead of an entire subclass
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_axe"),
+				setRegistryNameAndTranslationKey(
+						new ItemSpade(ToolMaterials.GENERIC)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_shovel"),
+				setRegistryNameAndTranslationKey(
+						new ItemHoe(ToolMaterials.GENERIC)
+						.setCreativeTab(KanosTestground.CREATIVE_TAB),
+						"generic_hoe")
 		);
+	}
+	
+	public static void init()
+	{
+		ToolMaterials.GENERIC.setRepairItem(new ItemStack(GENERIC_INGOT)); // Set repair item after ObjectHolders are applied
 	}
 	
 	@EventBusSubscriber(modid = KanosTestground.MOD_ID, value = Side.CLIENT)
@@ -68,10 +107,29 @@ public class ItemRegistrar
 					GENERIC_NUGGET,
 					GENERIC_DUST,
 					SMALL_GENERIC_DUST,
-					TINY_GENERIC_DUST
+					TINY_GENERIC_DUST,
+					
+					GENERIC_SWORD,
+					GENERIC_PICKAXE,
+					GENERIC_AXE,
+					GENERIC_SHOVEL,
+					GENERIC_HOE
 			).filter(i -> i != null && i != Items.AIR)
 			.forEach(setItemModel);
 		}
+	}
+	
+	public static class ToolMaterials // inner classes can prevent class-level ObjectHolder from trying to populate other constants
+	{
+		public static final Item.ToolMaterial GENERIC =
+				EnumHelper.addToolMaterial(
+						KanosTestground.MOD_ID + ":generic",
+						3,
+						500,
+						6.5F,
+						2.5F,
+						8
+				);
 	}
 	
 	// Static utility methods
