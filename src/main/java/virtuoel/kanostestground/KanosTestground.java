@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,6 +20,11 @@ public class KanosTestground
 	public static final String MOD_ID = "kanostestground";
 	
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+	
+	static
+	{
+		FluidRegistry.enableUniversalBucket();
+	}
 	
 	public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(MOD_ID)
 	{

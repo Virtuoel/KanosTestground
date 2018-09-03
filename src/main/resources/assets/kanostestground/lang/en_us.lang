@@ -24,5 +24,8 @@ item.kanostestground.generic_chestplate.name=Generic Chestplate
 item.kanostestground.generic_leggings.name=Generic Leggings
 item.kanostestground.generic_boots.name=Generic Boots
 
+# Fluids
+fluid.kanostestground.molten_generic=Molten Generic
+
 # Creative Tabs
 itemGroup.kanostestground=Kanos Testground
