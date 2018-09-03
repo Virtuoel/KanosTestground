@@ -1,5 +1,6 @@
 package virtuoel.kanostestground.init;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -49,7 +50,7 @@ public class BlockRegistrar
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
 						"pickaxe", 2),
 						"generic_block"),
-		null).filter(b -> b != null)
+		null).filter(Objects::nonNull)
 		.forEach(event.getRegistry()::register);
 	}
 	
@@ -59,8 +60,8 @@ public class BlockRegistrar
 		final Function<Block, Item> makeItemBlock = block -> new ItemBlock(block).setRegistryName(block.getRegistryName());
 		
 		Stream.of(
-			GENERIC_ORE,
-			GENERIC_BLOCK,
+				GENERIC_ORE,
+				GENERIC_BLOCK,
 		null).filter(b -> b != null && b != Blocks.AIR)
 		.map(makeItemBlock)
 		.forEach(event.getRegistry()::register);
@@ -78,8 +79,8 @@ public class BlockRegistrar
 			};
 			
 			Stream.of(
-				GENERIC_ORE,
-				GENERIC_BLOCK,
+					GENERIC_ORE,
+					GENERIC_BLOCK,
 			null).filter(b -> b != null && b != Blocks.AIR)
 			.map(Item::getItemFromBlock)
 			.filter(i -> i != null && i != Items.AIR)

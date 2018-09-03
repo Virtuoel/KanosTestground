@@ -1,5 +1,6 @@
 package virtuoel.kanostestground.init;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -108,7 +109,7 @@ public class ItemRegistrar
 						new ItemArmor(ArmorMaterials.GENERIC, 0, EntityEquipmentSlot.FEET)
 						.setCreativeTab(KanosTestground.CREATIVE_TAB),
 						"generic_boots"),
-		null).filter(i -> i != null)
+		null).filter(Objects::nonNull)
 		.forEach(event.getRegistry()::register);
 	}
 	
